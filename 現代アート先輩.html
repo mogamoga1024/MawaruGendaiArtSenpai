@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<style>
+	body {
+		position: relative;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	svg {
+		position: absolute;
+		animation: r 5s linear infinite;
+	}
+	@keyframes r {
+		0%   { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+	</style>
+</head>
+<body>
+	<svg viewBox="-50 -50 100 100" xmlns="http://www.w3.org/2000/svg">
+		<path d="M 0, 0 L 0, -200 a 200 200 -90 0 1 173, 300 z" fill="rgb(200, 190, 181)" />
+		<path d="M 0, 0 L 173, 100 a 200 200 30 0 1 -346, 0 z" fill="rgb(62, 52, 63)" />
+		<path d="M 0, 0 L -173, 100 a 200 200 150 0 1 173, -300 z" fill="rgb(152, 158, 154)" />
+		<circle cx="0" cy="0" r="7" fill="rgb(161, 114, 106)" />
+	</svg>
+	<script>
+	function init() {
+		console.log("hoge");
+		$("svg").width($("body").width() * 4);
+		$("svg").height(window.innerHeight * 4);
+		$("svg").css({
+			top: -1 * window.innerHeight * 1.5,
+			left: -1 * $("body").width() * 1.5
+		});
+	};
+	
+	init();
+	$(window).resize(init);
+	</script>
+</body>
+</html>
